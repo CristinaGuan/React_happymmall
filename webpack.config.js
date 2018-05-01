@@ -2,7 +2,7 @@
 * @Author: guanxy
 * @Date:   2018-04-14 21:52:49
 * @Last Modified by:   guanxy
-* @Last Modified time: 2018-04-15 12:25:44
+* @Last Modified time: 2018-04-29 21:14:14
 */
 const path = require('path');
 const webpack =require('webpack');
@@ -102,6 +102,10 @@ module.exports = {
     //自动代理
     proxy:{
       '/manage':{
+        target:'http://admintest.happymmall.com',
+        changeOrigin:true
+      },
+      '/user/logout.do':{
         target:'http://admintest.happymmall.com',
         changeOrigin:true
       }
