@@ -8,12 +8,12 @@ class TableList extends React.Component{
          isFirstLoading:true
    }
   }
-   ComponentWillReceiveProps(){
-    //列表只有在第一次挂载的时候，isFirstLoadin才为true，否则为false
-    this.setState({
-        isFirstLoading:false
+   componentWillReceiveProps(){
+        // 列表只有在第一次挂载的时候，isFirstLoading为true，其他情况为false
+        this.setState({
+            isFirstLoading : false
         });
-   }
+    }
    render(){
     //表头信息
     let tableHeader=this.props.tableHead.map((tableHead,index)=>{
@@ -33,7 +33,7 @@ class TableList extends React.Component{
     //没有请求到数据时的显示或提示
     let errorBody=(
        <tr>
-         <td className="text-center" colSpan={this.props.tableHead.length}>{this.state.isFirstLoading?'正在加载....':'没有找到相应的结果'}</td>
+         <td className="text-center" colSpan={this.props.tableHead.length}>{this.state.isFirstLoading?'正在加载数据....':'没有找到相应的结果~~'}</td>
        </tr>
      );
     

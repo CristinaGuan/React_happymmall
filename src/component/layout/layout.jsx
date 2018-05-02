@@ -1,7 +1,11 @@
 import React from 'react'
-import 'component/layout/theme.css'
+
 import TopNav from 'component/top-nav/top-nav.jsx'
 import SideNav  from 'component/side-nav/side-nav.jsx'
+
+import './theme.css'
+import './index.scss'
+
 
 class Layout extends React.Component{
 	constructor(props){

@@ -14,6 +14,7 @@ class Login extends React.Component{
       redirect:_mm.getUrlParam('redirect') || '/'
     } 
 	}
+  //UNSAFE_componentWillMount()在装配发生前被立刻调用。其在render()之前被调用，因此在这方法里同步地设置状态将不会触发重渲。
   componentWillMount(){
     document.title='登录-MMALL ADMIN';
   }

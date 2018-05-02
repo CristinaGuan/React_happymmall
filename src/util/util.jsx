@@ -43,6 +43,7 @@ class Mutil{
   }
  	//错误提示
  	errorTip(errMsg){
+      console.log('错误啦');
       alert(errMsg || '好像哪里不对');
  	}
   //对用户登录信息进行本地存储

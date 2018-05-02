@@ -4,7 +4,7 @@ class ProductSearchComponent extends React.Component{
   constructor(props){
     super(props);
     this.state={
-       searchType:'',//productid or productname 
+       searchType:'productId',//productid or productname 
        searchKeyWord:'' //搜索关键字
     }
   }
@@ -12,14 +12,20 @@ class ProductSearchComponent extends React.Component{
   onSearchValueChange(e){
     let name=e.target.name,
         value=e.target.value.trim();
+
     this.setState({
         [name]:value
     });
-
   }
   //搜索按钮的点击事件
-  onsearch(){
-
+  onSearch(){
+    this.props.onSearch(this.state.searchType,this.state.searchKeyWord);
+  }
+  //输入关键字后按回车键，自动提交
+  onSearchKeyWordKeyUp(e){
+    if(e.keyCode===13){
+      this.onSearch();
+    }
   }
    render(){
    	return (
@@ -33,7 +39,7 @@ class ProductSearchComponent extends React.Component{
                 </select>
               </div>
             <div className="form-group">
-               <input type="text" className="form-control" placeholder="关键字" name="searchKeyWord" onChange={(e)=>this.onSearchValueChange(e)}/>
+               <input type="text" className="form-control" placeholder="关键字" name="searchKeyWord" onChange={(e)=>this.onSearchValueChange(e)} onKeyUp={(e)=>{this.onSearchKeyWordKeyUp(e)}}/>
             </div>
                <button type="button" className="btn btn-primary" onClick={(e)=>this.onSearch(e)}>查询</button>
             </div>

@@ -6,6 +6,7 @@ import Mutil             from 'util/util.jsx'
 import TableList         from 'util/generaldutyTable/table.jsx'
 import Product           from 'service/product_server.jsx'
 import ProductSearchComponent from 'page/product/productIndex/product_searchComponent.jsx'
+import ProductSave       from  'page/product/productAdd/product_save.jsx'
 import './pro_index.scss'
 
 const _mm      = new Mutil();
@@ -17,20 +18,29 @@ class ProductList extends React.Component{
     this.state={
          pageNum:1,
          list:[],
-         status:1
+         status:1,
    }
   }
-  //在dom渲染完成后执行请求
+  //componentDidMount()在组件被装配后立即调用
   componentDidMount(){
-   this.loadProductList();
+   // this.loadProductList();
   }
   //请求商品列表数据
   loadProductList(){
-   _product.getProductListData(this.state.pageNum).then((res)=>{
+
+  	let listParam={};
+  	listParam.listType=this.state.listType;
+  	listParam.pageNum=this.state.pageNum;
+  	//如果是搜索的话，需要传入搜索类型和关键字
+  	if(this.state.listType==='search'){
+  	  listParam.searchType=this.state.searchType;
+  	  listParam.keyWord=this.state.searchKeyWord;
+  	}
+  	//请求接口
+    _product.getProductListData(listParam).then((res)=>{
       console.log(res);
       this.setState(res);
-    },(errMsg)=>{
-    	console.log(errMsg);
+      },(errMsg)=>{
           this.setState({
             list:[]
           });
@@ -50,6 +60,19 @@ class ProductList extends React.Component{
       }
     
   }
+   //搜索按钮点击事件
+  onSearch(searchType,searchKeyWord){
+
+    let listType=(searchKeyWord===''?'list':'search');
+    this.setState({
+    	listType:listType,
+    	pageNum:1,
+    	searchType:searchType,
+    	searchKeyWord:searchKeyWord
+    },()=>{
+    	this.loadProductList();
+    });
+  }
   //页数发生变化的时候
   onPageChange(pageNum){
     this.setState({
@@ -58,14 +81,21 @@ class ProductList extends React.Component{
         this.loadProductList();
       });
   }
-
+ 
    render(){
    	let tableHead=[{name:'商品ID',width:'10%'},{name:'商品名称',width:'50%'},{name:'价格',width:'20%'},{name:'状态',width:'10%'},{name:'操作',width:'10%'}];
    	return (
        <div>
        	   <div id="page-wrapper">
-              <PageTitle title="商品管理"/>
-                <ProductSearchComponent></ProductSearchComponent>
+              <PageTitle title="商品管理">
+              	<div className="page-header-right">
+              		<Link className="btn btn-primary" to="/product/save">
+              			<i className="fa fa-plus"></i>
+              			<span>添加商品</span>
+              		</Link>
+              	</div>
+              </PageTitle>
+                <ProductSearchComponent onSearch={(searchType,searchKeyWord)=>{this.onSearch(searchType,searchKeyWord)}}></ProductSearchComponent>
                 <TableList tableHead={tableHead}>
                  { this.state.list.map((product,index)=>{
                    return (
