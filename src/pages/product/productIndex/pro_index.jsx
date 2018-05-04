@@ -19,15 +19,15 @@ class ProductList extends React.Component{
          pageNum:1,
          list:[],
          status:1,
+         listType:'list'
    }
   }
   //componentDidMount()在组件被装配后立即调用
   componentDidMount(){
-   // this.loadProductList();
+   this.loadProductList();
   }
   //请求商品列表数据
   loadProductList(){
-
   	let listParam={};
   	listParam.listType=this.state.listType;
   	listParam.pageNum=this.state.pageNum;
@@ -38,7 +38,7 @@ class ProductList extends React.Component{
   	}
   	//请求接口
     _product.getProductListData(listParam).then((res)=>{
-      console.log(res);
+      // console.log(res);
       this.setState(res);
       },(errMsg)=>{
           this.setState({
@@ -107,7 +107,8 @@ class ProductList extends React.Component{
                            <span>{product.status==1?'在售':'已下架'}</span>
                            <button className="btn btn-warning btn-xs" onClick={(e)=>{this.onSetProductStatus(e,product.id,product.status)}}>{product.status==1?'下架':'上架'}</button>
                          </td>
-                         <td><Link className="opear" to="/product/detail/${product.id}">查看</Link><Link className="opear" to="/product/edit/${product.id}">编辑</Link></td>
+                         <td><Link className="opear" to={ `/product/detail/${product.id}` }>查看</Link>
+                             <Link className="opear" to={`/product/edit/${product.id}`}>编辑</Link></td>
                        </tr>
                     );
                    })

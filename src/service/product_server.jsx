@@ -2,9 +2,11 @@ import Mutil from "../util/util.jsx";
 const _mm = new Mutil();
 
 class Product{
+  /*
+    商品相关接口请求
+   */
  //请求商品列表接口
   getProductListData(listParam){
-
     let url='',
         data={};
     if(listParam.listType==='list'){
@@ -30,7 +32,20 @@ class Product{
       data:{productId:productId,status:Status}
     });
   }
-  
+
+  //获取商品详情
+  getProductDetail(productId){
+   return _mm.request({
+      type:'post',
+      url:'/manage/product/detail.do',
+      data:{
+        productId:productId
+      }
+   });
+  }
+  /*
+    品类相关接口请求
+   */
   //请求分类列表接口
   getCategoryList(categoryId){
     return _mm.request({

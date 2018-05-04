@@ -13,9 +13,19 @@ class ProductSave extends React.Component{
   constructor(props){
   	super(props);
   	this.state={
-     categoryId:0,
-     parentCategoryId:0
+        id               : this.props.match.params.pid,
+        name             : '',
+        subtitle         : '',
+        categoryId       : 0,
+        parentCategoryId : 0,
+        subImages        : [],
+        price            : '',
+        stock            : '',
+        detail           : '',
+        status           : 1 //商品状态1为在售
+
   	}
+
   }
   onCategoryChange(categoryId,parentCategoryId){
     console.log('categoryId'+categoryId,'parentCategoryId'+parentCategoryId);

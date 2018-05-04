@@ -1,0 +1,22 @@
+/*
+* @Author: guanxy
+* @Date:   2018-05-04 23:01:59
+* @Last Modified by:   guanxy
+* @Last Modified time: 2018-05-04 23:06:45
+*/
+$sub-img-size: 80px;
+
+#page-wrapper{
+	.img-con{
+		width:$sub-img-size;
+		height: $sub-img-size;
+		float:left;
+		margin-right: 5px;
+		border: 1px solid #ccc;
+		.img{
+			width:100%;
+			height:100%;
+			display:block;
+		}
+	}
+}
