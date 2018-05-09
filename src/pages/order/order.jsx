@@ -86,7 +86,9 @@ class OrderList extends React.Component{
                          <td>{order.statusDesc}</td>
                          <td>￥{order.payment}</td>
                          <td>{order.createTime}</td>
-                         <td><Link to={ `/order/detail/${order.orderNo}`}>查看</Link></td>
+                         <td>
+                           <Link to={ `/order/detail/${order.orderNo}`}>详情</Link>
+                         </td>
                        </tr>
                     );
                    })

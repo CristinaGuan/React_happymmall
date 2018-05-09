@@ -24,6 +24,28 @@ class OrderService{
       data:data
     });
  }
+ //请求订单详情数据
+ getOrderDetail(orderNo){
+  return _mm.request({
+     type:'post',
+      url:'/manage/order/detail.do',
+      data:{
+        orderNo:orderNo
+      }
+
+  });
+ }
+ //发货
+ sendOrderGoods(orderNo){
+  return _mm.request({
+     type:'post',
+      url:'/manage/order/send_goods.do',
+      data:{
+        orderNo:orderNo
+      }
+
+  });
+ }
 
 }
 export default OrderService;

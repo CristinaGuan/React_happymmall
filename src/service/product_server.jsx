@@ -114,5 +114,18 @@ class Product{
     });
   }
 
+  //更新品类
+  updateCategoryName(updateCategorydata){
+    return _mm.request({
+      type:'post',
+      url:'/manage/category/set_category_name.do',
+      data:{
+        categoryId:updateCategorydata.categoryId,
+        categoryName:updateCategorydata.categoryName
+      }
+    });
+  }
+
+
 }
 export default Product;
