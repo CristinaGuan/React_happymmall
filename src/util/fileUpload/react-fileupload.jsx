@@ -1,9 +1,4 @@
-/*
-* @Author: guanxy
-* @Date:   2018-04-14 21:53:27
-* @Last Modified by:   guanxy
-* @Last Modified time: 2018-04-14 22:59:09
-*/
+
 
 import React    from 'react';
 import PT       from 'prop-types';

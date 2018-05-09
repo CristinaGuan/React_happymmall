@@ -11,7 +11,7 @@ class Error extends React.Component{
    render(){
    	return (
        <div>
-       	   <div id="page-wrapper">
+       	   <div id="page-wrapper" className="errorPage">
               <PageTitle title="出错啦！"/>
                 <div className="row">
                   <div className="col-md-12">

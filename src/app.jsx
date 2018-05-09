@@ -13,6 +13,8 @@ import Layout from 'component/layout/layout.jsx';
 import Error  from 'page/error/error.jsx';
 import UserList from 'page/user/user.jsx';
 import ProductRouter from 'page/product/productRouter.jsx'
+import Order   from 'page/order/order.jsx'
+import OrderDetail   from 'page/order/orderDetail/orderDetail.jsx'
 
 class App extends React.Component{
   
@@ -23,7 +25,8 @@ class App extends React.Component{
                <Route exact path="/" component={Home}/>
                <Route path="/product" component={ProductRouter}/>
                <Route path="/product-category" component={ProductRouter}/>
-               <Route path="/order" component={Home}/>
+               <Route path="/order" component={Order}/>
+               <Route path="/order/detail/:orderNumber" component={OrderDetail}/>
                <Route path="/user/index" component={UserList}/>
                <Redirect exact from="/user" to="/user/index"/>
                <Route component={Error}/>

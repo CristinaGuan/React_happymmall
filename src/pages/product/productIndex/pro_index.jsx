@@ -1,12 +1,14 @@
-import React             from 'react'
-import PageTitle         from 'component/pageTitle/pageTitle.jsx'
-import {Link}            from 'react-router-dom'
-import Pagination        from 'util/pagination/pagination.jsx';
-import Mutil             from 'util/util.jsx'
-import TableList         from 'util/generaldutyTable/table.jsx'
-import Product           from 'service/product_server.jsx'
+import React                  from 'react'
+import {Link}                 from 'react-router-dom'
+import PageTitle              from 'component/pageTitle/pageTitle.jsx'
+import Pagination             from 'util/pagination/pagination.jsx';
+import TableList              from 'util/generaldutyTable/table.jsx'
 import ProductSearchComponent from 'page/product/productIndex/product_searchComponent.jsx'
-import ProductSave       from  'page/product/productAdd/product_save.jsx'
+import ProductSave            from  'page/product/productAdd/product_save.jsx'
+
+import Mutil                  from 'util/util.jsx'
+import Product                from 'service/product_server.jsx'
+
 import './pro_index.scss'
 
 const _mm      = new Mutil();
@@ -18,7 +20,6 @@ class ProductList extends React.Component{
     this.state={
          pageNum:1,
          list:[],
-         status:1,
          listType:'list'
    }
   }
@@ -62,12 +63,11 @@ class ProductList extends React.Component{
   }
    //搜索按钮点击事件
   onSearch(searchType,searchKeyWord){
-
     let listType=(searchKeyWord===''?'list':'search');
     this.setState({
-    	listType:listType,
-    	pageNum:1,
-    	searchType:searchType,
+    	listType     :listType,
+    	pageNum      :1,
+    	searchType   :searchType,
     	searchKeyWord:searchKeyWord
     },()=>{
     	this.loadProductList();
@@ -83,7 +83,13 @@ class ProductList extends React.Component{
   }
  
    render(){
-   	let tableHead=[{name:'商品ID',width:'10%'},{name:'商品名称',width:'50%'},{name:'价格',width:'20%'},{name:'状态',width:'10%'},{name:'操作',width:'10%'}];
+   	let tableHead=[
+            {name:'商品ID' ,width:'10%'},
+            {name:'商品名称',width:'50%'},
+            {name:'价格'   ,width:'20%'},
+            {name:'状态'   ,width:'10%'},
+            {name:'操作'   ,width:'10%'}
+          ];
    	return (
        <div>
        	   <div id="page-wrapper">
@@ -108,7 +114,7 @@ class ProductList extends React.Component{
                            <button className="btn btn-warning btn-xs" onClick={(e)=>{this.onSetProductStatus(e,product.id,product.status)}}>{product.status==1?'下架':'上架'}</button>
                          </td>
                          <td><Link className="opear" to={ `/product/detail/${product.id}` }>查看</Link>
-                             <Link className="opear" to={`/product/edit/${product.id}`}>编辑</Link></td>
+                             <Link className="opear" to={`/product/save/${product.id}`}>编辑</Link></td>
                        </tr>
                     );
                    })

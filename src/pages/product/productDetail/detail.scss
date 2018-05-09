@@ -2,21 +2,41 @@
 * @Author: guanxy
 * @Date:   2018-05-04 23:01:59
 * @Last Modified by:   guanxy
-* @Last Modified time: 2018-05-04 23:06:45
+* @Last Modified time: 2018-05-09 14:57:37
 */
 $sub-img-size: 80px;
-
-#page-wrapper{
+ 
 	.img-con{
+		position: relative;
 		width:$sub-img-size;
 		height: $sub-img-size;
 		float:left;
-		margin-right: 5px;
+		margin-right: 10px;
 		border: 1px solid #ccc;
+		margin-bottom: 10px;
 		.img{
 			width:100%;
 			height:100%;
 			display:block;
 		}
+		.fa-close{
+			position:absolute;
+			top:0;
+			bottom:0;
+			left:0;
+			right:0;
+			text-align: center;
+			height:$sub-img-size;
+			line-height: $sub-img-size;
+			cursor:pointer;
+			display:none;
+			font-size: 50px;
+			color:#aaa;
+			background: rgba(0,0,0,.2);
+		}
+		&:hover{
+			.fa-close{
+				display:block;
+			}
+		}
 	}
-}

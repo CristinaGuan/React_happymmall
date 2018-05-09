@@ -2,22 +2,23 @@
 * @Author: guanxy
 * @Date:   2018-05-01 15:28:58
 * @Last Modified by:   guanxy
-* @Last Modified time: 2018-05-02 15:40:53
+* @Last Modified time: 2018-05-08 14:51:58
 */
-.page-wrapper{
-  .opear{
-	margin-right: 5px;
-}
-.searchRow{
-	margin-bottom: 10px;
-	.form-group{
-		margin-right:5px;
-	}
-}
 
+#page-wrapper {
+    .opear {
+        margin-right: 5px;
+    }
+    .page-header-right {
+            float: right;
+        }
 
 }
+    .searchRow {
+        margin-bottom: 10px;
+        .form-group {
+            margin-right: 5px;
+        }
 
-.page-header-right{
-	float:right;
-}
+        
+    }

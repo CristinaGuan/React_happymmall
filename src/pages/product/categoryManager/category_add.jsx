@@ -21,7 +21,8 @@ class CategoryAdd extends React.Component{
   	super(props);
   	this.state={
       parentCategoryId: 0,
-      categoryList:[] 
+      categoryList:[],
+      categoryName:''
   	}
 
   }
@@ -32,7 +33,7 @@ class CategoryAdd extends React.Component{
   loadParentCategory(){
    _product.getCategoryList(this.state.parentCategoryId).then(
     (res)=>{
-      console.log(res);
+      // console.log(res);
       this.setState({
       categoryList:res
       });
@@ -42,8 +43,42 @@ class CategoryAdd extends React.Component{
      }
     );
   }
-  onCategoryValueChange(e){
-   console.log(e.target.value);
+  onCategoryIdValueChange(e){
+    let newParentCategoryId=e.target.value;
+    this.setState({
+      parentCategoryId:newParentCategoryId
+    });
+  }
+  onCategoryNameChange(e){
+    let newCategoryName=e.target.value;
+    this.setState({
+      categoryName:newCategoryName
+    });
+  }
+  onKeyUp(e){
+    if(e.keyCode===13){
+       this.onCategoryNameChange();
+    }
+  }
+  onSubmit(e){
+    let categoryname=$.trim(this.state.categoryName);
+    if(typeof categoryname!=='string' || categoryname.length===0){
+       alert('品类名不能为空');
+    }else{
+      let subData={
+      parentId:this.state.parentCategoryId,
+      categoryName:categoryname
+      }
+    
+    _product.submitCategory(subData).then(
+      (res)=>{
+        _mm.successTip(res);
+      },
+      (errMsg)=>{
+        _mm.errorTip(errMsg);
+      }
+      );
+  }
   }
   render(){
     return (
@@ -54,7 +89,7 @@ class CategoryAdd extends React.Component{
 	                  <div className="form-horizontal">
 						    <div className="form-group">
 						      <label className="col-md-2 control-label">所属分类</label>
-						    	<select className="form-control cate-select" name="" onChange={(e)=>{this.onCategoryValueChange(e)}}>
+						    	<select className="form-control cate-select" name="" onChange={(e)=>{this.onCategoryIdValueChange(e)}}>
                    {
                     this.state.categoryList.map((category,index)=>{
                       return (
@@ -67,11 +102,13 @@ class CategoryAdd extends React.Component{
 						   <div className="form-group">
 						    <label className="col-md-2 control-label">品类名称</label>
 						    <div className="col-md-4">
-						    	<input type="text" className="form-control"  placeholder="输入品类名称"/>
+						    	<input type="text" className="form-control"  placeholder="输入品类名称" 
+                         onChange={(e)=>{this.onCategoryNameChange(e)}}
+                         onKeyUp={(e)=>{this.onKeyUp(e)}}/>
 						    </div>
 						  </div>
 						  <div className="col-md-4">
-						  	<button type="button" className="btn btn-default">提交</button>
+						  	<button type="button" className="btn btn-default" onClick={(e)=>{this.onSubmit(e)}}>提交</button>
 						  </div>
 						  
 					</div>
