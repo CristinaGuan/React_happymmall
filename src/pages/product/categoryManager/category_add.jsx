@@ -89,7 +89,7 @@ class CategoryAdd extends React.Component{
 	                  <div className="form-horizontal">
 						    <div className="form-group">
 						      <label className="col-md-2 control-label">所属分类</label>
-						    	<select className="form-control cate-select" name="" onChange={(e)=>{this.onCategoryIdValueChange(e)}}>
+						    	<select className="form-control col-md-4 cate-select" name="" onChange={(e)=>{this.onCategoryIdValueChange(e)}}>
                    {
                     this.state.categoryList.map((category,index)=>{
                       return (
@@ -107,7 +107,7 @@ class CategoryAdd extends React.Component{
                          onKeyUp={(e)=>{this.onKeyUp(e)}}/>
 						    </div>
 						  </div>
-						  <div className="col-md-4">
+						  <div className="col-md-2 col-md-offset-2">
 						  	<button type="button" className="btn btn-default" onClick={(e)=>{this.onSubmit(e)}}>提交</button>
 						  </div>
 						  

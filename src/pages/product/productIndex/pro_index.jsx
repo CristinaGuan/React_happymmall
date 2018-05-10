@@ -110,7 +110,7 @@ class ProductList extends React.Component{
                          <td><span>{product.name}</span><p>{product.subtitle}</p></td>
                          <td>{product.price}</td>
                          <td>
-                           <span>{product.status==1?'在售':'已下架'}</span>
+                           <div>{product.status==1?<span className="product-status1">在售</span>:<span className="product-status2">已下架</span>}</div>
                            <button className="btn btn-warning btn-xs" onClick={(e)=>{this.onSetProductStatus(e,product.id,product.status)}}>{product.status==1?'下架':'上架'}</button>
                          </td>
                          <td><Link className="opear" to={ `/product/detail/${product.id}` }>查看</Link>

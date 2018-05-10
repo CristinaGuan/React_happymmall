@@ -2,7 +2,7 @@
 * @Author: guanxy
 * @Date:   2018-05-01 15:28:58
 * @Last Modified by:   guanxy
-* @Last Modified time: 2018-05-08 14:51:58
+* @Last Modified time: 2018-05-10 08:57:36
 */
 
 #page-wrapper {
@@ -13,7 +13,8 @@
             float: right;
         }
 
-}
+
+  }
     .searchRow {
         margin-bottom: 10px;
         .form-group {
@@ -21,4 +22,17 @@
         }
 
         
+    
+    }
+   .product-status1{
+        display:inline-block;
+        width:100%;
+        font-weight: bold;
+        color:green;
+    }
+     .product-status2{
+        display:inline-block;
+        width:100%;
+        font-weight: bold;
+        color:red;
     }

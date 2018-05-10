@@ -2,19 +2,21 @@
 * @Author: guanxy
 * @Date:   2018-04-14 21:52:49
 * @Last Modified by:   guanxy
-* @Last Modified time: 2018-04-29 21:14:14
+* @Last Modified time: 2018-05-10 09:35:07
 */
 const path = require('path');
 const webpack =require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-
+let WEBPACK_ENV=process.env.WEBPACK_ENV || 'dev'; //定义一个环境变量
+console.log(WEBPACK_ENV);
 module.exports = {
   entry: './src/app.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/',
+    //在环境配置里判断环境
+    publicPath: WEBPACK_ENV==='dev'?'/dist/':'//s.cristinaguan.github.io/React_happymmall/dist',
 	  filename: 'js/app.jsx'
   },
   resolve:{
