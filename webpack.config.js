@@ -2,7 +2,7 @@
 * @Author: guanxy
 * @Date:   2018-04-14 21:52:49
 * @Last Modified by:   guanxy
-* @Last Modified time: 2018-05-10 09:35:07
+* @Last Modified time: 2018-05-10 10:42:58
 */
 const path = require('path');
 const webpack =require('webpack');
@@ -16,7 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     //在环境配置里判断环境
-    publicPath: WEBPACK_ENV==='dev'?'/dist/':'//s.cristinaguan.github.io/React_happymmall/dist',
+    publicPath: WEBPACK_ENV==='dev'?'/dist/':'./',
 	  filename: 'js/app.jsx'
   },
   resolve:{
