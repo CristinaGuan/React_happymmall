@@ -8,9 +8,10 @@
   "scripts": {
     "dev": "node_modules/.bin/webpack-dev-server",
     "dist": "WEBPACK_ENV=online node_modules/.bin/webpack",
-    "dist-win":"set WEBPACK_ENV=online&& node_modules/.bin/webpack"
+    "dist-win": "set WEBPACK_ENV=online&& node_modules/.bin/webpack"
   },
   "dependencies": {
+    "nginx": "^0.0.0",
     "node-sass": "^4.9.0",
     "prop-types": "15.6.0",
     "rc-pagination": "1.16.3",
