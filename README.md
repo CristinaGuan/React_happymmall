@@ -32,8 +32,8 @@ yarn add style-loader@0.19.1 css-loader@0.28.8 --dev
  
 8、安装ExtractTextWebpackPlugin
 yarn add extract-text-webpack-plugin@3.0.2 --dev
-或者 npm install --save-dev extract-text-webpack-plugin # 对于 webpack 2 或者 npm install --save-dev extract-text-webpack-plugin@2.1.2 # 对于 webpack 1 或者 npm install --save-dev extract-text-webpack-plugin@1.0.1
- 
+或者 npm install --save-dev extract-text-webpack-plugin
+
 9、安装sass-loader
 yarn add sass-loader@6.0.6 --dev
 yarn add node-sass@4.7.2 --dev
@@ -84,6 +84,7 @@ yarn add react-router-dom@4.2.2
 项目效果图：
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1fr6598paobj30f90a9q2r.jpg)
 ![](https://ws2.sinaimg.cn/large/006tKfTcly1fr6598cjy6j31390i0t8v.jpg)
+![](https://ws2.sinaimg.cn/large/006tKfTcly1fr65979eoej313a0js3z8.jpg)
 ![](https://ws4.sinaimg.cn/large/006tKfTcly1fr659bc7zyj313c0jx0tm.jpg)
 ![](https://ws4.sinaimg.cn/large/006tKfTcly1fr65922rs6j313b0jwwff.jpg)
 ![](https://ws1.sinaimg.cn/large/006tKfTcly1fr658y3tavj31380itaau.jpg)
