@@ -2,7 +2,7 @@
 * @Author: guanxy
 * @Date:   2018-04-14 21:52:49
 * @Last Modified by:   guanxy
-* @Last Modified time: 2018-05-10 12:26:02
+* @Last Modified time: 2018-05-23 17:17:33
 */
 const path = require('path');
 const webpack =require('webpack');
@@ -16,7 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     //在环境配置里判断环境
-    publicPath: WEBPACK_ENV==='dev'?'/dist/':'./',
+    publicPath: WEBPACK_ENV==='dev'?'/dist/':'//47.94.248.12/dist/',
 	  filename: 'js/app.jsx'
   },
   resolve:{
@@ -97,7 +97,7 @@ module.exports = {
   ],
   devServer: {
     //指定一个端口.8080容易被占用
-    port:8086,
+    port:8080,
     historyApiFallback:{
       index:'/dist/index.html'
     },
